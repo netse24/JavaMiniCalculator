@@ -55,31 +55,159 @@ public class App {
                 case 3:
                     System.out.println("You chose Area of Rectangle.");
                     break;
+                case 4:
+                    System.out.println("You chose Area of Rectangle.");
+                    break;
+                case 5:
+                    System.out.println("You chose Area of Rectangle.");
+                    break;
+                case 6:
+                    System.out.println("You chose Area of Rectangle.");
+                    break;
+                case 7:
+                    System.out.println("You chose Area of Rectangle.");
+                    break;
+                case 8:
+                    calculation(scanner);
+                    break;
+                case 9:
+                    System.out.println("You chose Area of Rectangle.");
+                    break;
+                case 10:
+                    System.out.println("You chose Area of Rectangle.");
+                    break;
             }
 
         } while (true);
 
     }
 
-    // Calculate student remarks.
     public static void studentRemark(Scanner scanner) {
         char repeat;
         do {
             System.out.print("Enter the student's score (0-100): ");
-            int score = scanner.nextInt();
+            double score = scanner.nextDouble();
 
-            if (score >= 90) {
-                System.out.println("Remark: Excellent!");
-            } else if (score >= 70) {
-                System.out.println("Remark: Good.");
-            } else if (score >= 50) {
-                System.out.println("Remark: Average.");
+            String grade = "N/A";
+            String mention = "Invalid score";
+
+            if (score < 0 || score > 100) {
+                System.out.println("Invalid score! Please enter a score between 0 and 100.");
             } else {
-                System.out.println("Remark: Needs Improvement.");
+                if (score >= 85) {
+                    grade = "A";
+                    mention = "Excellent";
+                } else if (score >= 80) {
+                    grade = "B+";
+                    mention = "Very Good";
+                } else if (score >= 70) {
+                    grade = "B";
+                    mention = "Good";
+                } else if (score >= 65) {
+                    grade = "C+";
+                    mention = "Fairly Good";
+                } else if (score >= 60) {
+                    grade = "C";
+                    mention = "Fair";
+                } else if (score >= 50) {
+                    grade = "D";
+                    mention = "Poor";
+                } else if (score >= 45) {
+                    grade = "E";
+                    mention = "Very Poor";
+                } else {
+                    grade = "F";
+                    mention = "Failure";
+                }
+
+                System.out.println("Grade: " + grade);
+                System.out.println("Mention: " + mention);
             }
 
-            System.out.print("Enter y to calculate again, any key to go back to the menu: ");
+            System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+
         } while (repeat == 'y' || repeat == 'Y');
     }
+
+    public static void calculation(Scanner scanner) {
+        char repeat;
+        double firstValue;
+        double secondValue;
+        int operator = 0;
+        do {
+
+            System.out.print("Enter first value: ");
+            firstValue = scanner.nextDouble();
+
+            System.out.println("============= Choose Operators =============");
+            String operatorOption[] = {
+                    "Sum",
+                    "Subtract",
+                    "Multiply",
+                    "Division"
+            };
+
+            for (int i = 0; i < operatorOption.length; i++) {
+                System.out.println((i + 1) + ". " + operatorOption[i]);
+
+            }
+            System.out.print("Enter operator : ");
+            String input = scanner.next();
+
+            System.out.print("Enter second value: ");
+            secondValue = scanner.nextDouble();
+
+            boolean isValidOperator = false;
+            while (!isValidOperator) {
+                try {
+                    operator = Integer.parseInt(input);
+                    if (operator >= 1 && operator <= 4) {
+                        isValidOperator = true;
+                    } else {
+                        System.out.println("Invalid operator. Please choose a number between 1 and 4.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Exiting the program.");
+                    scanner.close();
+                    return;
+                }
+            }
+
+            double result = 0;
+            switch (operator) {
+                case 1:
+                    result = firstValue + secondValue;
+                    break;
+                case 2:
+                    result = firstValue - secondValue;
+                    break;
+                case 3:
+                    result = firstValue * secondValue;
+                    break;
+                case 4:
+                    if (secondValue != 0) {
+                        result = firstValue / secondValue;
+                    } else {
+                        System.out.println("Error: Division by zero.");
+                        scanner.close();
+                        return;
+                    }
+                    break;
+                default:
+                    System.out.println("Invalid operator. Exiting the program.");
+                    scanner.close();
+                    return;
+            }
+
+            System.out.println("The result is: " + result);
+
+            System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+
+        } while (repeat == 'y' || repeat == 'Y');
+    }
+
 }
