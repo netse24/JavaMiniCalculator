@@ -50,7 +50,7 @@ public class App {
                     studentRemark(scanner);
                     break;
                 case 2:
-                    System.out.println("You chose Sale with Discount.");
+                    saleDiscount(scanner);
                     break;
                 case 3:
                     System.out.println("You chose Area of Rectangle.");
@@ -81,5 +81,37 @@ public class App {
             System.out.print("Enter y to calculate again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
         } while (repeat == 'y' || repeat == 'Y');
+    }
+
+    // Sale with discount
+    public static void saleDiscount(Scanner scanner) {
+        char repeat;
+        do{
+            System.out.print("Please enter amount of price you be paid: ");
+            double price = scanner.nextDouble();
+            double amountDiscount = 0;
+            
+            if(price >= 1 && price <= 25){
+                amountDiscount = price;
+            }else if( price >= 25 && price <= 50){
+                amountDiscount = 0.02 * price;
+            }else if(price >= 50 && price <= 100){
+                amountDiscount = 0.10 * price;
+            }else if(price >= 100 && price < 200){
+                amountDiscount = 0.15 * price;
+            }else if(price >= 200 && price < 300){
+                amountDiscount = 0.20 * price;
+            }else if(price >= 300 && price < 500){
+                amountDiscount = 0.50 * price;
+            }else{
+                amountDiscount = 0.75 * price;
+            }
+
+            System.out.println("amount you be paid: " + price + " Final amount after discount: " + (price-amountDiscount));
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+        }while (repeat == 'y' || repeat == 'Y');
+        
     }
 }
