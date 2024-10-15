@@ -53,10 +53,10 @@ public class App {
                     saleDiscount(scanner);
                     break;
                 case 3:
-                    rectangleArea(scanner);
+                    System.out.println("You chose Area of Rectangle.");
                     break;
                 case 4:
-                    circleArea(scanner);
+                    System.out.println("You chose Area of Rectangle.");
                     break;
                 case 5:
                     System.out.println("You chose Area of Rectangle.");
@@ -71,10 +71,10 @@ public class App {
                     calculation(scanner);
                     break;
                 case 9:
-                    miniBanking(scanner);
+                    System.out.println("You chose Area of Rectangle.");
                     break;
                 case 10:
-                    electricOfFee(scanner);
+                    System.out.println("You chose Area of Rectangle.");
                     break;
             }
 
@@ -162,66 +162,6 @@ public class App {
         }while (repeat == 'y' || repeat == 'Y');
         
     }
-   
-    //Area of Rectangle
-    public static void rectangleArea(Scanner scanner) {
-        char repeat;
-        do{
-            System.out.print("Enter the length of the rectangle: ");
-            double length = scanner.nextDouble();
-            
-            System.out.print("Enter the width of the rectangle: ");
-            double width = scanner.nextDouble();
-            
-            double area = length * width;
-            
-            System.out.println("The area of the rectangle is: " + area);
-
-            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
-            repeat = scanner.next().charAt(0);
-            scanner.nextLine();
-        }while (repeat == 'y' || repeat == 'Y');  
-    //Area of Circle//
-    public static void circleArea(Scanner scanner) {
-        char repeat;
-        do {
-            double A, radius;
-            
-            System.out.println("Enter radius: ");
-            radius = scanner.nextFloat();
-            A = Math.PI * Math.pow(radius, 2);  
-            System.out.printf("Area of Circle is equal= %.2f\n", A); 
-            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
-            repeat = scanner.next().charAt(0);
-            scanner.nextLine();
-        } while (repeat == 'y' || repeat == 'Y');
-    }
-    
-    // Mini Banking
-    public static void miniBanking(Scanner scanner) {
-        char repeat;
-        do{
-            Scanner input = new Scanner(System.in);
-            System.out.print("Input the investment amount: ");
-            double principal = input.nextDouble();
-    
-            System.out.print("Input the rate of interest: ");
-            double interestRate = input.nextDouble();
-    
-            System.out.print("Input number of years: ");
-            int years = input.nextInt();
-            System.out.printf("%-10s%-10s\n", "Years", "FutureValue");
-            for (int y = 1; y <= years; y++) {
-                double futureAmount = principal * Math.pow(1 + interestRate / 100, y);
-                System.out.printf("%-10d%-10.2f\n", y, futureAmount);
-            }
-            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
-            repeat = scanner.next().charAt(0);
-            scanner.nextLine();
-        }while (repeat == 'y' || repeat == 'Y');
-        
-    }
-
     public static void calculation(Scanner scanner) {
         char repeat;
         double firstValue;
@@ -304,18 +244,21 @@ public class App {
         
         char repeat;
         do {
+            
             System.out.print("Enter the base of the parallelogram: ");
             double base = scanner.nextDouble();
             System.out.print("Enter the height of the parallelogram: ");
             double height = scanner.nextDouble();
 
+            if (!base.hasN){
+
+            }
+
+            
 
             double area = base * height;
 
             System.out.println("The area of the parallelogram is: " + area);
-        
-
-
             
             System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
@@ -324,24 +267,5 @@ public class App {
         } while (repeat == 'y' || repeat == 'Y');
 
     }
-    
-
-    //Electric Fee
-    public static void electricOfFee(Scanner scanner) {
-        char repeat;
-        do {
-            System.out.print("Enter the number of kWh used: ");
-            double kWhUsed = scanner.nextDouble();
-            System.out.print("Enter the rate per kWh: ");
-            double ratePerKWh = scanner.nextDouble();
-            double totalFee = kWhUsed * ratePerKWh;
-            System.out.printf("The total electricity fee is: %.2f Riel\n", totalFee);
-            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
-            repeat = scanner.next().charAt(0);
-            scanner.nextLine();
-        } while (repeat == 'y' || repeat == 'Y');
-    }
-        
-    
 
 }
