@@ -65,7 +65,7 @@ public class App {
                     System.out.println("You chose Area of Rectangle.");
                     break;
                 case 7:
-                    parallelogramArea(scanner);
+                    System.out.println("You chose Area of Rectangle.");
                     break;
                 case 8:
                     calculation(scanner);
@@ -241,29 +241,13 @@ public class App {
         } while (repeat == 'y' || repeat == 'Y');
     }
     public static void  parallelogramArea(Scanner scanner){
+        System.out.print("Enter the base of the parallelogram: ");
+        double base = scanner.nextDouble();
+        System.out.print("Enter the height of the parallelogram: ");
+        double height = scanner.nextDouble();
+
         
-        char repeat;
-        do {
-            System.out.print("Enter the base of the parallelogram: ");
-            double base = scanner.nextDouble();
-            System.out.print("Enter the height of the parallelogram: ");
-            double height = scanner.nextDouble();
-
-
-            double area = base * height;
-
-            System.out.println("The area of the parallelogram is: " + area);
-        
-
-
-            
-            System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
-            repeat = scanner.next().charAt(0);
-            scanner.nextLine();
-
-        } while (repeat == 'y' || repeat == 'Y');
 
     }
-    
 
 }

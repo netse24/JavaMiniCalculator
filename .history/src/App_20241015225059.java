@@ -62,10 +62,10 @@ public class App {
                     System.out.println("You chose Area of Rectangle.");
                     break;
                 case 6:
-                    System.out.println("You chose Area of Rectangle.");
+                    parallelogramArea(scanner);
                     break;
                 case 7:
-                    parallelogramArea(scanner);
+                    System.out.println("You chose Area of Rectangle.");
                     break;
                 case 8:
                     calculation(scanner);

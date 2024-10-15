@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class App {
@@ -10,16 +11,16 @@ public class App {
             System.out.println("=========== Java Mini Calculator ===========");
             System.out.println("Enter Your Function:");
             String[] options = {
-                    "Student Remark",
-                    "Sale with Discount",
-                    "Area of Rectangle",
-                    "Area of Circle",
-                    "Area of Square",
-                    "Area of Triangle",
-                    "Area of Parallelogram",
-                    "Sum, Subtract, Multiply, Division",
-                    "Mini Banking (Interest Rate)",
-                    "Electric Fee"
+                "Student Remark",
+                "Sale with Discount",
+                "Area of Rectangle",
+                "Area of Circle",
+                "Area of Square",
+                "Area of Triangle",
+                "Area of Parallelogram",
+                "Sum, Subtract, Multiply, Division",
+                "Mini Banking (Interest Rate)",
+                "Electric Fee"
             };
 
             for (int i = 0; i < options.length; i++) {
@@ -134,34 +135,35 @@ public class App {
     // Sale with discount
     public static void saleDiscount(Scanner scanner) {
         char repeat;
-        do{
+        do {
             System.out.print("Please enter amount of price you be paid: ");
             double price = scanner.nextDouble();
             double amountDiscount = 0;
-            
-            if(price >= 1 && price <= 25){
+
+            if (price >= 1 && price <= 25) {
                 amountDiscount = price;
-            }else if( price >= 25 && price <= 50){
+            } else if (price >= 25 && price <= 50) {
                 amountDiscount = 0.02 * price;
-            }else if(price >= 50 && price <= 100){
+            } else if (price >= 50 && price <= 100) {
                 amountDiscount = 0.10 * price;
-            }else if(price >= 100 && price < 200){
+            } else if (price >= 100 && price < 200) {
                 amountDiscount = 0.15 * price;
-            }else if(price >= 200 && price < 300){
+            } else if (price >= 200 && price < 300) {
                 amountDiscount = 0.20 * price;
-            }else if(price >= 300 && price < 500){
+            } else if (price >= 300 && price < 500) {
                 amountDiscount = 0.50 * price;
-            }else{
+            } else {
                 amountDiscount = 0.75 * price;
             }
 
-            System.out.println("amount you be paid: " + price + " Final amount after discount: " + (price-amountDiscount));
+            System.out.println("amount you be paid: " + price + " Final amount after discount: " + (price - amountDiscount));
             System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
-        }while (repeat == 'y' || repeat == 'Y');
-        
+        } while (repeat == 'y' || repeat == 'Y');
+
     }
+
     public static void calculation(Scanner scanner) {
         char repeat;
         double firstValue;
@@ -174,10 +176,10 @@ public class App {
 
             System.out.println("============= Choose Operators =============");
             String operatorOption[] = {
-                    "Sum",
-                    "Subtract",
-                    "Multiply",
-                    "Division"
+                "Sum",
+                "Subtract",
+                "Multiply",
+                "Division"
             };
 
             for (int i = 0; i < operatorOption.length; i++) {
@@ -240,23 +242,27 @@ public class App {
 
         } while (repeat == 'y' || repeat == 'Y');
     }
-    public static void  parallelogramArea(Scanner scanner){
-        
+
+    public static void parallelogramArea(Scanner scanner) {
+
         char repeat;
         do {
-            System.out.print("Enter the base of the parallelogram: ");
-            double base = scanner.nextDouble();
+
+            // System.out.print("Enter the base of the parallelogram: ");
+            // double base = scanner.nextDouble();
+            System.out.print("Enter the base of the parallelogram (number): ");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Invalid input. Please input a valid number.");
+                scanner.next(); // Clear the invalid input
+                System.out.print("Enter the base of the parallelogram (number): ");
+            }
             System.out.print("Enter the height of the parallelogram: ");
             double height = scanner.nextDouble();
-
 
             double area = base * height;
 
             System.out.println("The area of the parallelogram is: " + area);
-        
 
-
-            
             System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
@@ -264,6 +270,5 @@ public class App {
         } while (repeat == 'y' || repeat == 'Y');
 
     }
-    
 
 }

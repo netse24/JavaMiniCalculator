@@ -244,11 +244,13 @@ public class App {
         
         char repeat;
         do {
+            
             System.out.print("Enter the base of the parallelogram: ");
             double base = scanner.nextDouble();
             System.out.print("Enter the height of the parallelogram: ");
             double height = scanner.nextDouble();
 
+            
 
             double area = base * height;
 
@@ -264,6 +266,5 @@ public class App {
         } while (repeat == 'y' || repeat == 'Y');
 
     }
-    
 
 }
