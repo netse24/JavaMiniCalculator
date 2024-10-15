@@ -53,7 +53,7 @@ public class App {
                     saleDiscount(scanner);
                     break;
                 case 3:
-                    System.out.println("You chose Area of Rectangle.");
+                    rectangleArea(scanner);
                     break;
                 case 4:
                     System.out.println("You chose Area of Rectangle.");
@@ -162,6 +162,27 @@ public class App {
         }while (repeat == 'y' || repeat == 'Y');
         
     }
+   
+    //Area of Rectangle
+    public static void rectangleArea(Scanner scanner) {
+        char repeat;
+        do{
+            System.out.print("Enter the length of the rectangle: ");
+            double length = scanner.nextDouble();
+            
+            System.out.print("Enter the width of the rectangle: ");
+            double width = scanner.nextDouble();
+            
+            double area = length * width;
+            
+            System.out.println("The area of the rectangle is: " + area);
+
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+        }while (repeat == 'y' || repeat == 'Y');  
+    }
+
     public static void calculation(Scanner scanner) {
         char repeat;
         double firstValue;
