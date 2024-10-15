@@ -56,7 +56,7 @@ public class App {
                     rectangleArea(scanner);
                     break;
                 case 4:
-                    System.out.println("You chose Area of Rectangle.");
+                    circleArea(scanner);
                     break;
                 case 5:
                     System.out.println("You chose Area of Rectangle.");
@@ -71,7 +71,7 @@ public class App {
                     calculation(scanner);
                     break;
                 case 9:
-                    System.out.println("You chose Area of Rectangle.");
+                    miniBanking(scanner);
                     break;
                 case 10:
                     electricOfFee(scanner);
@@ -181,6 +181,45 @@ public class App {
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
         }while (repeat == 'y' || repeat == 'Y');  
+    //Area of Circle//
+    public static void circleArea(Scanner scanner) {
+        char repeat;
+        do {
+            double A, radius;
+            
+            System.out.println("Enter radius: ");
+            radius = scanner.nextFloat();
+            A = Math.PI * Math.pow(radius, 2);  
+            System.out.printf("Area of Circle is equal= %.2f\n", A); 
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+        } while (repeat == 'y' || repeat == 'Y');
+    }
+    
+    // Mini Banking
+    public static void miniBanking(Scanner scanner) {
+        char repeat;
+        do{
+            Scanner input = new Scanner(System.in);
+            System.out.print("Input the investment amount: ");
+            double principal = input.nextDouble();
+    
+            System.out.print("Input the rate of interest: ");
+            double interestRate = input.nextDouble();
+    
+            System.out.print("Input number of years: ");
+            int years = input.nextInt();
+            System.out.printf("%-10s%-10s\n", "Years", "FutureValue");
+            for (int y = 1; y <= years; y++) {
+                double futureAmount = principal * Math.pow(1 + interestRate / 100, y);
+                System.out.printf("%-10d%-10.2f\n", y, futureAmount);
+            }
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+        }while (repeat == 'y' || repeat == 'Y');
+        
     }
 
     public static void calculation(Scanner scanner) {
