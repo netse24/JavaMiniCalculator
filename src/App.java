@@ -74,7 +74,7 @@ public class App {
                     miniBanking(scanner);
                     break;
                 case 10:
-                    System.out.println("You chose Area of Rectangle.");
+                    electricOfFee(scanner);
                     break;
             }
 
@@ -300,5 +300,23 @@ public class App {
 
         } while (repeat == 'y' || repeat == 'Y');
     }
+
+    //Electric Fee
+    public static void electricOfFee(Scanner scanner) {
+        char repeat;
+        do {
+            System.out.print("Enter the number of kWh used: ");
+            double kWhUsed = scanner.nextDouble();
+            System.out.print("Enter the rate per kWh: ");
+            double ratePerKWh = scanner.nextDouble();
+            double totalFee = kWhUsed * ratePerKWh;
+            System.out.printf("The total electricity fee is: %.2f Riel\n", totalFee);
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+        } while (repeat == 'y' || repeat == 'Y');
+    }
+        
+    
 
 }
