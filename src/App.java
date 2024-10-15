@@ -56,7 +56,7 @@ public class App {
                     System.out.println("You chose Area of Rectangle.");
                     break;
                 case 4:
-                    System.out.println("You chose Area of Rectangle.");
+                    circleArea(scanner);
                     break;
                 case 5:
                     System.out.println("You chose Area of Rectangle.");
@@ -162,6 +162,26 @@ public class App {
         }while (repeat == 'y' || repeat == 'Y');
         
     }
+   
+    //Area of Circle//
+    public static void circleArea(Scanner scanner) {
+        char repeat;
+        do {
+            double A, radius;
+            
+            System.out.println("Enter radius: ");
+            radius = scanner.nextFloat();
+            A = Math.PI * Math.pow(radius, 2);  
+            System.out.printf("Area of Circle is equal= %.2f\n", A); 
+    
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+        } while (repeat == 'y' || repeat == 'Y');
+    }
+    
+    
+
     public static void calculation(Scanner scanner) {
         char repeat;
         double firstValue;
