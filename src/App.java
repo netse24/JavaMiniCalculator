@@ -53,7 +53,7 @@ public class App {
                     saleDiscount(scanner);
                     break;
                 case 3:
-                    System.out.println("You chose Area of Rectangle.");
+                    rectangleArea(scanner);
                     break;
                 case 4:
                     circleArea(scanner);
@@ -163,6 +163,24 @@ public class App {
         
     }
    
+    //Area of Rectangle
+    public static void rectangleArea(Scanner scanner) {
+        char repeat;
+        do{
+            System.out.print("Enter the length of the rectangle: ");
+            double length = scanner.nextDouble();
+            
+            System.out.print("Enter the width of the rectangle: ");
+            double width = scanner.nextDouble();
+            
+            double area = length * width;
+            
+            System.out.println("The area of the rectangle is: " + area);
+
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
+            repeat = scanner.next().charAt(0);
+            scanner.nextLine();
+        }while (repeat == 'y' || repeat == 'Y');  
     //Area of Circle//
     public static void circleArea(Scanner scanner) {
         char repeat;
@@ -179,29 +197,6 @@ public class App {
         } while (repeat == 'y' || repeat == 'Y');
     }
     
-    // //Mini Banking//
-    // public static void main(String[] args) {
-    //     Scanner input = new Scanner(System.in);
-
-    //     System.out.print("Input the investment amount: ");
-    //     double principal = input.nextDouble();
-
-    //     System.out.print("Input the rate of interest: ");
-    //     double interestRate = input.nextDouble();
-
-    //     System.out.print("Input number of years: ");
-    //     int years = input.nextInt();
-
-    //     System.out.printf("Years\t\tFutureValue");
-
-    //     for (int y = 1; y <= years; y++) {
-    //         // the formula futureValue = principal + (1 + (rate/100)) expo year
-    //         double futureAmount = principal * Math.pow(1 + interestRate / 100, y);
-    //         System.out.printf("%d\t\t%.2f\n", y, futureAmount);
-    //     }
-
-    //     input.close();
-    // }
     // Mini Banking
     public static void miniBanking(Scanner scanner) {
         char repeat;
