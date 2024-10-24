@@ -1,3 +1,14 @@
+/* 
+    Our team members:
+    1. SE Net (team leader)
+    2. LEK Phin
+    3. THORN Dariya
+    4. LUN Socheat
+    5. KOSAL Chamreth
+    6. KHIN Sreypheap
+
+ */
+
 import java.util.Scanner;
 
 public class App {
@@ -46,50 +57,29 @@ public class App {
             }
 
             switch (choice) {
-                case 1:
-                    studentRemark(scanner);
-                    break;
-                case 2:
-                    saleDiscount(scanner);
-                    break;
-                case 3:
-                    rectangleArea(scanner);
-                    break;
-                case 4:
-                    circleArea(scanner);
-                    break;
-                case 5:
-                    areaOfSquare(scanner);
-                    break;
-                case 6:
-                    areaOfTriangle(scanner);
-                    break;
-                case 7:
-                    parallelogramArea(scanner);
-                    break;
-                case 8:
-                    calculation(scanner);
-                    break;
-                case 9:
-                    miniBanking(scanner);
-                    break;
-                case 10:
-                    electricOfFee(scanner);
-                    break;
+                case 1 -> studentRemark(scanner);
+                case 2 -> saleDiscount(scanner);
+                case 3 -> rectangleArea(scanner);
+                case 4 -> circleArea(scanner);
+                case 5 -> areaOfSquare(scanner);
+                case 6 -> areaOfTriangle(scanner);
+                case 7 -> parallelogramArea(scanner);
+                case 8 -> calculation(scanner);
+                case 9 -> miniBanking(scanner);
+                case 10 -> electricOfFee(scanner);
             }
 
         } while (true);
 
     }
 
+    /* Student Remark by SE Net */
     public static void studentRemark(Scanner scanner) {
         char repeat;
         do {
             System.out.print("Enter the student's score (0-100): ");
             double score = scanner.nextDouble();
-
-            String grade = "N/A";
-            String mention = "Invalid score";
+            String grade, mention;
 
             if (score < 0 || score > 100) {
                 System.out.println("Invalid score! Please enter a score between 0 and 100.");
@@ -124,20 +114,20 @@ public class App {
                 System.out.println("Mention: " + mention);
             }
 
-            System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
 
         } while (repeat == 'y' || repeat == 'Y');
     }
 
-    // Sale with discount
+    /* Sale with discount by KHIN Sreypheap */
     public static void saleDiscount(Scanner scanner) {
         char repeat;
         do {
             System.out.print("Please enter amount of price you be paid: ");
             double price = scanner.nextDouble();
-            double amountDiscount = 0;
+            double amountDiscount;
 
             if (price >= 1 && price <= 25) {
                 amountDiscount = price;
@@ -164,7 +154,7 @@ public class App {
 
     }
 
-    // Area of Rectangle
+    /* Area of Rectangle by LEK Phin */
     public static void rectangleArea(Scanner scanner) {
         char repeat;
         do {
@@ -184,7 +174,7 @@ public class App {
         } while (repeat == 'y' || repeat == 'Y');
     }
 
-    // Area of Circle//
+    /* Area of Circle by THORN Dariya */
     public static void circleArea(Scanner scanner) {
         char repeat;
         do {
@@ -200,30 +190,28 @@ public class App {
         } while (repeat == 'y' || repeat == 'Y');
     }
 
-
-    // Method to calculate the area of a square
+    /* Area of a square by KOSAL Chamreth */
     public static void areaOfSquare(Scanner scanner) {
         char repeat;
 
-        do{ 
+        do {
             System.out.print("Enter the side lenght of the square:");
 
             double side = scanner.nextDouble();
             double area = side * side;
             System.out.println("The area of the square is: " + area);
 
-            System.out.print("Do you want to calculate again? (y/n): ");
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
         } while (repeat == 'y' || repeat == 'Y');
     }
 
-    
-    // Method to calculate the area of a triangle
+    /* Area of a triangle by LEK Phin */
     public static void areaOfTriangle(Scanner scanner) {
         char repeat;
         do {
-            
+
             System.out.print("Enter the base of the triangle: ");
             double base = scanner.nextDouble();
             System.out.print("Enter the height of the triangle: ");
@@ -234,13 +222,13 @@ public class App {
             System.out.println("The area of the triangle is: " + area);
 
             // Ask if the user wants to repeat the calculation
-            System.out.print("Do you want to calculate again? (y/n): ");
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
         } while (repeat == 'y' || repeat == 'Y');
     }
 
-    // Mini Banking
+    /* Mini Banking by THORN Dariya */
     public static void miniBanking(Scanner scanner) {
         char repeat;
         do {
@@ -265,6 +253,7 @@ public class App {
 
     }
 
+    /* Sum, Subtract, Multiply, Division by SE Net */
     public static void calculation(Scanner scanner) {
         char repeat;
         double firstValue;
@@ -309,18 +298,12 @@ public class App {
                 }
             }
 
-            double result = 0;
+            double result = 0.0;
             switch (operator) {
-                case 1:
-                    result = firstValue + secondValue;
-                    break;
-                case 2:
-                    result = firstValue - secondValue;
-                    break;
-                case 3:
-                    result = firstValue * secondValue;
-                    break;
-                case 4:
+                case 1 -> result = firstValue + secondValue;
+                case 2 -> result = firstValue - secondValue;
+                case 3 -> result = firstValue * secondValue;
+                case 4 -> {
                     if (secondValue != 0) {
                         result = firstValue / secondValue;
                     } else {
@@ -328,24 +311,24 @@ public class App {
                         scanner.close();
                         return;
                     }
-                    break;
-                default:
+                }
+                default -> {
                     System.out.println("Invalid operator. Exiting the program.");
                     scanner.close();
                     return;
+                }
             }
-
             System.out.println("The result is: " + result);
 
-            System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
 
         } while (repeat == 'y' || repeat == 'Y');
     }
 
+    /* Area of parallelogram by Lun Socheat */
     public static void parallelogramArea(Scanner scanner) {
-
         char repeat;
         do {
             System.out.print("Enter the base of the parallelogram: ");
@@ -357,7 +340,7 @@ public class App {
 
             System.out.println("The area of the parallelogram is: " + area);
 
-            System.out.print("Enter 'y' to calculate again, any key to go back to the menu: ");
+            System.out.print("Enter 'y' or 'Y' to try again, any key to go back to the menu: ");
             repeat = scanner.next().charAt(0);
             scanner.nextLine();
 
@@ -365,7 +348,7 @@ public class App {
 
     }
 
-    // Electric Fee
+    /* Electric Fee By LEK Phin */
     public static void electricOfFee(Scanner scanner) {
         char repeat;
         do {
